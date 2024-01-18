@@ -25,22 +25,22 @@ home admin area		            GET		    /admin		                             Nothi
 show all questions              GET         /admin/questionsimg                      {
                                                                                         questions:[
                                                                                             {
-                                                                                            idQuestion:Integer,
-                                                                                            question:string,
-                                                                                            correct:boolean,
-                                                                                            realNew:string,
-                                                                                            img:img
+                                                                                            idQuestion:Integer,must,
+                                                                                            question:string,must,
+                                                                                            correct:boolean,must,
+                                                                                            realNew:string,must,
+                                                                                            img:img: dont must
                                                                                             },
                                                                                         ]
                                                                                     }
 
 
 show one question               GET         /admin/questionsimg/{idQuestion}           {                                    
-                                                                                        idQuestion:Integer,                   
-                                                                                        question:string,                     
-                                                                                        correct:boolean,
-                                                                                        realNew:string,
-                                                                                        img:img
+                                                                                        idQuestion:Integer,must,                  
+                                                                                        question:string, must,                  
+                                                                                        correct:boolean,must,
+                                                                                        realNew:string,must,
+                                                                                        img:img: dont must
                                                                                     }
                                                                                         
                                                                                         
@@ -52,12 +52,12 @@ show one question               GET         /admin/questionsimg/{idQuestion}    
 
 
 form add questions		        GET		    /admin/questionimg/create		    Nothing                             Nothing
-create images questions         POST        /admin/questionimg/create           {                                   {
-                                                                                    feedback:string                        question:string,
-                                                                                }                                       correct:boolean,
-                                                                                                                        realNew:string,
-                                                                                                                        img:img
-                                                                                                                    }
+create images questions         POST        /admin/questionimg/create           {                                   	{
+                                                                                    feedback:string, must,                       question:string,must,
+                                                                                }                                       	correct:boolean,must,
+                                                                                                                        	realNew:string,must,
+                                                                                                                        	img:img: dont must
+                                                                                                                    	}
 
 form edit questions             GET         /admin/question/{id}/edit      {                                        nothing                         
                                                                                 question:string:must,       
@@ -68,16 +68,16 @@ form edit questions             GET         /admin/question/{id}/edit      {    
 
 
 edit questions                   PUT         /admin/question/{id}/edit      {                                        {
-                                                                                                                        idquestion:Integer
-                                                                                feedback:string                                question:string,
-                                                                            }                                           correct:boolean,
-                                                                                                                        realNew:string,
-                                                                                                                        img:img
+                                                                                                                        idquestion:Integer,must,
+                                                                                feedback:string,must,                               question:string,must,
+                                                                            }                                           correct:boolean,must,
+                                                                                                                        realNew:string,must,
+                                                                                                                        img:img: dont must
                                                                                                                     }
 
 
 delet questions                 DELETE       /admin/question/{id}/delete    {                                       {
-                                                                                feedback:string                            idquestion:Integer
+                                                                                feedback:string, must,                          idquestion:Integer, must,
                                                                             }                                        } 
                                                                                     
                                                                                                           								
