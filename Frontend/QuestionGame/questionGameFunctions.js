@@ -52,8 +52,10 @@ async function setNewQuestion(){
 
   //Answers the Question
   async function AnswerQuestion(answer){
-    let anwereText
-    //user is are right
+    //flip the Card
+    var card = document.querySelector('.card');
+    card.classList.toggle('flipped');
+    
     if (currentQuestionAnswer === answer){
         
     }
