@@ -49,3 +49,18 @@ async function setNewQuestion(){
     imageElement.src = img;
     questionContainer.appendChild(imageElement);
 }
+
+  //Answers the Question
+  async function AnswerQuestion(answer){
+    let anwereText
+    //user is are right
+    if (currentQuestionAnswer === answer){
+        
+    }
+
+    //user is wrong
+    else{
+
+    }
+}
+
