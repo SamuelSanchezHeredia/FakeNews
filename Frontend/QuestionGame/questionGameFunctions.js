@@ -1,14 +1,51 @@
-var currentQuestionAnswer;
-var currentQuestionExplenation;
+const domainOfAPI = "/api1";
+const questionContainer = document.getElementById("contentQuestion");
+let currentQuestionAnswer; //Saves the answer of the current Question on the Website
+let currentQuestionExplenation; //Saves the explenation of the current Question on the Website
 
 
-async function getQuestion(){
-    let response = await fetch("https://www.tagesschau.de/api2/news/?regions=10&ressort=inland"); //Schau wie die Seite heisst
-    let newsData = await response.json();
-    currentQuestionAnswer = response.answer; //schauen wie die Antwort con denen in JSION aussieht
-    let question = newsData.question; //schauen wie die Frage bei denen aussehen
-    let questionContainer = document.getElementById("contentQuestion")
-    questionContainer.innerHTML = "";
-    let htmlToAdd = `<p class="text-lg">` + question + `</p>`
-    questionContainer.innerHTML = htmlToAdd;
+async function setNewQuestion(){
+    //fetch data
+    const data = await fetchQuestionFromAPI()
+
+    //Set global variables
+    currentQuestionAnswer = data.correct;
+    currentQuestionExplenation = data.realNew; 
+
+    //Set Question and Image into HTML
+    await AddQuestionAsHTML(data.question)
+    await AddImageToHtml(data.img)
   }
+
+  //Fetches the Question from API
+  async function fetchQuestionFromAPI(){
+    const response = await fetch(domainOfAPI + "/quizimg"); //Schau wie die Seite heisst
+    const data = await response.json();
+    return data
+  }
+
+  //Add Question to the Side
+  async function AddQuestionAsHTML(question){
+    //delete old Content
+    while (parentElement.firstChild) {
+        parentElement.removeChild(parentElement.firstChild);
+      }
+
+    //Add the HTML
+    let questionElement = document.createElement("p");
+    let textNode = document.createTextNode(question);
+    questionElement.appendChild(textNode);
+    questionContainer.appendChild(newElement);
+  }
+
+  //Adds the image if it Exists 
+  async function AddImageToHtml(img){
+    if (img == null){
+            return;
+    }
+
+    //Add Image
+    let imageElement = document.createElement("img");
+    imageElement.src = img;
+    questionContainer.appendChild(imageElement);
+}
