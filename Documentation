@@ -1,0 +1,84 @@
+DO the quiz
+
+Descripcion			Metodo		Ruta		            JSON 
+The home quiz			GET		/		                Nothing
+quiz with images		GET		/quizimg		        {
+                                                            questions:[
+                                                                {
+                                                                question:string,
+                                                                correct:boolean,
+                                                                realNew:string,
+                                                                img:img
+                                                                },
+                                                            ]
+                                                        }
+
+
+
+Admin area
+
+Administration questions with images
+
+Descripcion			            Metodo		Ruta		                             JSON                                Params
+home admin area		            GET		    /admin		                             Nothing                             Nothing
+show all questions              GET         /admin/questionsimg                      {
+                                                                                        questions:[
+                                                                                            {
+                                                                                            idQuestion:Integer,
+                                                                                            question:string,
+                                                                                            correct:boolean,
+                                                                                            realNew:string,
+                                                                                            img:img
+                                                                                            },
+                                                                                        ]
+                                                                                    }
+
+
+show one question               GET         /admin/questionsimg/{idQuestion}           {                                    
+                                                                                        idQuestion:Integer,                   
+                                                                                        question:string,                     
+                                                                                        correct:boolean,
+                                                                                        realNew:string,
+                                                                                        img:img
+                                                                                    }
+                                                                                        
+                                                                                        
+
+
+
+
+
+
+
+form add questions		        GET		    /admin/questionimg/create		    Nothing                             Nothing
+create images questions         POST        /admin/questionimg/create           {                                   {
+                                                                                    feedback:string                        question:string,
+                                                                                }                                       correct:boolean,
+                                                                                                                        realNew:string,
+                                                                                                                        img:img
+                                                                                                                    }
+
+form edit questions             GET         /admin/question/{id}/edit      {                                        nothing                         
+                                                                                question:string,       
+                                                                                correct:boolean,        
+                                                                                realNew:string,         
+                                                                                img:img                 
+                                                                            }                              
+
+
+edit questions                   PUT         /admin/question/{id}/edit      {                                        {
+                                                                                                                        idquestion:Integer
+                                                                                feedback:string                                question:string,
+                                                                            }                                           correct:boolean,
+                                                                                                                        realNew:string,
+                                                                                                                        img:img
+                                                                                                                    }
+
+
+delet questions                 DELETE       /admin/question/{id}/delete    {                                       {
+                                                                                feedback:string                            idquestion:Integer
+                                                                            }                                        } 
+                                                                                    
+                                                                                                          								
+									
+								] 
