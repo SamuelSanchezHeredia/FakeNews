@@ -5,10 +5,10 @@ The home quiz			GET		/		                Nothing
 quiz with images		GET		/quizimg		        {
                                                             questions:[
                                                                 {
-                                                                question:string,
-                                                                correct:boolean,
-                                                                realNew:string,
-                                                                img:img
+                                                                question:string:must,
+                                                                correct:boolean:must,
+                                                                realNew:string:must,
+                                                                img:img:dont must
                                                                 },
                                                             ]
                                                         }
@@ -59,10 +59,10 @@ create images questions         POST        /admin/questionimg/create           
                                                                                                                     }
 
 form edit questions             GET         /admin/question/{id}/edit      {                                        nothing                         
-                                                                                question:string,       
-                                                                                correct:boolean,        
-                                                                                realNew:string,         
-                                                                                img:img                 
+                                                                                question:string:must,       
+                                                                                correct:boolean:must,        
+                                                                                realNew:string:must,         
+                                                                                img:img:dont must                
                                                                             }                              
 
 
