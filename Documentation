@@ -1,0 +1,85 @@
+url https://cgarort2508.ieszaidinvergeles.es/fakeNews/fakeNews/public/
+DO the quiz
+
+Descripcion			Metodo		Ruta		            JSON 
+The home quiz			GET		/		                Nothing
+quiz with images		GET		/quizimg		        {
+                                                            questions:[
+                                                                {
+                                                                question:string:must,
+                                                                correct:boolean:must,
+                                                                realNew:string:must,
+                                                                img:img:dont must
+                                                                },
+                                                            ]
+                                                        }
+
+
+
+Admin area
+
+Administration questions with images
+
+Descripcion			            Metodo		Ruta		                             JSON                                Params
+home admin area		            GET		    /admin		                             Nothing                             Nothing
+show all questions              GET         /admin/questionsimg                      {
+                                                                                        questions:[
+                                                                                            {
+                                                                                            idQuestion:Integer,must,
+                                                                                            question:string,must,
+                                                                                            correct:boolean,must,
+                                                                                            realNew:string,must,
+                                                                                            img:img: dont must
+                                                                                            },
+                                                                                        ]
+                                                                                    }
+
+
+show one question               GET         /admin/questionsimg/{idQuestion}           {                                    
+                                                                                        idQuestion:Integer,must,                  
+                                                                                        question:string, must,                  
+                                                                                        correct:boolean,must,
+                                                                                        realNew:string,must,
+                                                                                        img:img: dont must
+                                                                                    }
+                                                                                        
+                                                                                        
+
+
+
+
+
+
+
+form add questions		        GET		    /admin/questionimg/create		    Nothing                             Nothing
+create images questions         POST        /admin/questionimg/create           {                                   	{
+                                                                                    feedback:string, must,                       question:string,must,
+                                                                                }                                       	correct:boolean,must,
+                                                                                                                        	realNew:string,must,
+                                                                                                                        	img:img: dont must
+                                                                                                                    	}
+
+form edit questions             GET         /admin/question/{id}/edit      {                                        nothing                         
+                                                                                question:string:must,       
+                                                                                correct:boolean:must,        
+                                                                                realNew:string:must,         
+                                                                                img:img:dont must                
+                                                                            }                              
+
+
+edit questions                   PUT         /admin/question/{id}/edit      {                                        {
+                                                                                                                        idquestion:Integer,must,
+                                                                                feedback:string,must,                               question:string,must,
+                                                                            }                                           correct:boolean,must,
+                                                                                                                        realNew:string,must,
+                                                                                                                        img:img: dont must
+                                                                                                                    }
+
+
+delet questions                 DELETE       /admin/question/{id}/delete    {                                       {
+                                                                                feedback:string, must,                          idquestion:Integer, must,
+                                                                            }                                        } 
+                                                                                    
+                                                                                                          								
+									
+								] 
