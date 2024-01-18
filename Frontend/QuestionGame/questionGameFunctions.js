@@ -3,7 +3,7 @@ const questionContainer = document.getElementById("contentQuestion");
 let currentQuestionAnswer; //Saves the answer of the current Question on the Website
 let currentQuestionExplenation; //Saves the explenation of the current Question on the Website
 
-
+//Set new Question
 async function setNewQuestion(){
     //fetch data
     const data = await fetchQuestionFromAPI()
