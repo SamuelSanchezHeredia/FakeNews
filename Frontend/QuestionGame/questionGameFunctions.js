@@ -1,4 +1,4 @@
-const domainOfAPI = "/api1";
+const domainOfAPI = "https://cgarort2508.ieszaidinvergeles.es/fakeNews/fakeNews/public/api/admin";
 const questionContainer = document.getElementById("contentQuestion");
 let currentQuestionAnswer; //Saves the answer of the current Question on the Website
 let currentQuestionExplenation; //Saves the explenation of the current Question on the Website
@@ -53,16 +53,10 @@ async function setNewQuestion(){
   //Answers the Question
   async function AnswerQuestion(answer){
     //flip the Card
-    var card = document.querySelector('.card');
-    card.classList.toggle('flipped');
-    
-    if (currentQuestionAnswer === answer){
-        
-    }
+    const card = document.querySelectorAll("flip-card");
 
-    //user is wrong
-    else{
-
-    }
+    card.addEventListener("click", () => {
+      console.log("hello there");
+    })
 }
 
