@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Fake News API Documentation
+  description: API documentation for the Fake News application
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: Get quiz information
+      responses:
+        '200':
+          description: Successful operation
+  /quizimg:
+    get:
+      summary: Get quiz questions with images
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                questions:
+                  - question: "string:must"
+                    correct: "boolean:must"
+                    realNew: "string:must"
+                    img: "img:dont must"
+  /admin:
+    get:
+      summary: Get information about the admin area
+      responses:
+        '200':
+          description: Successful operation
+  /admin/questionsimg:
+    get:
+      summary: Get all questions with images
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                questions:
+                  - id: "integer:must"
+                    question: "string:must"
+                    correct: "boolean:must"
+                    realNew: "string:must"
+                    img: "img:dont must"
+  /admin/questionsimg/{idQuestion}:
+    get:
+      summary: Get details of a specific question by ID
+      parameters:
+        - in: path
+          name: idQuestion
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                id: "integer:must"
+                question: "string:must"
+                correct: "boolean:must"
+                realNew: "string:must"
+                img: "img:dont must"
+  /admin/questionimg/create:
+    get:
+      summary: Get form to add questions
+      responses:
+        '200':
+          description: Successful operation
+  /admin/questionimg:
+    post:
+      summary: Create a new question with images
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              question: "string:must"
+              correct: "boolean:must"
+              realNew: "string:must"
+              img: "img:dont must"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                feedback: "string:must"
+                question: "string:must"
+                correct: "boolean:must"
+                realNew: "string:must"
+                img: "img:dont must"
+  /admin/questionsimg/{id}/edit:
+    get:
+      summary: Get form to edit a specific question by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                id: "integer:must"
+                question: "string:must"
+                correct: "boolean:must"
+                realNew: "string:must"
+                img: "img:dont must"
+  /admin/questionsimg/{id}:
+    put:
+      summary: Edit a specific question by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              feedback: "string:must"
+              question: "string:must"
+              correct: "boolean:must"
+              realNew: "string:must"
+              img: "img:dont must"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                id: "integer:must"
+                feedback: "string:must"
+                question: "string:must"
+                correct: "boolean:must"
+                realNew: "string:must"
+                img: "img:dont must"
