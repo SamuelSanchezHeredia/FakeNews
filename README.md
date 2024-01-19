@@ -1,79 +1,139 @@
-Frontend:
-	- Autenticación:
+# Fake News API Documentation
+API documentation for the Fake News application
 
-    a) Acceso al Frontend:
-        	Método: GET
-       	 	Ruta: /frontend
-        	Descripción: Permite acceder a la interfaz del juego en modo front.
+## Version: 1.0.0
 
-    b) Registro de Alias:
-        	Método: POST
-        	Ruta: /frontend/register
-        	Datos:
-            		- alias (cadena): Alias único del jugador.
+### /
 
-	- Juego:
+#### GET
+##### Summary:
 
-     	a) Obtener Pregunta:
-        	Método: GET
-        	Ruta: /frontend/question
-        	Descripción: Muestra una pregunta para el jugador.
+Get quiz information
 
-    	b) Responder Pregunta:
-        	Método: POST
-        	Ruta: /frontend/answer
-        	Datos:
-            		- answer (cadena): La respuesta seleccionada por el jugador.
-        	Descripción: Almacena la respuesta dada por el jugador en la tabla 'historial'.
+##### Responses
 
-Backend:
-	- Autenticación:
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
 
-	    a) Acceso al Backend:
-        		Método: GET
-        		Ruta: /backend
-        		Descripción: Permite acceder a la interfaz de administración en modo back.
+### /quizimg
 
-	- Gestión de Preguntas:
+#### GET
+##### Summary:
 
-    	 a) Listar Preguntas:
-        	Método: GET
-        	Ruta: /backend/questions
-        	Descripción: Muestra la lista de preguntas existentes.
+Get quiz questions with images
 
-	b) Crear Pregunta:
-        	Método: POST
-        	Ruta: /backend/question/create
-        	Datos:
-            		- question (cadena): Texto de la pregunta.
-            		- options (array): Opciones de respuesta.
-            		- correct_option (entero): Índice de la opción correcta.
-        	Descripción: Crea una nueva pregunta y sus opciones.
+##### Responses
 
-    	c) Editar Pregunta:
-        	Método: PUT
-        	Ruta: /backend/question/edit/{question_id}
-        	Datos:
-            		- question (cadena): Nuevo texto de la pregunta.
-            		- options (array): Nuevas opciones de respuesta.
-            		- correct_option (entero): Nuevo índice de la opción correcta.
-        	Descripción: Modifica una pregunta existente.
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
 
-    	d) Eliminar Pregunta:
-        	Método: DELETE
-        	Ruta: /backend/question/delete/{question_id}
-        	Descripción: Elimina una pregunta y sus respuestas posibles.
+### /admin
 
+#### GET
+##### Summary:
 
+Get information about the admin area
 
-	- Gestión de Respuestas:
+##### Responses
 
-    	a) Listar Respuestas del Historial:
-        	Método: GET
-        	Ruta: /backend/history
-        	Descripción: Recupera el historial de respuestas de los jugadores.
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
 
-   	b) Eliminar Respuestas del Historial:
-        	Método: DELETE
-        	Ruta: /backend/history/delete/{history_id}
-        	Descripción: Elimina una entrada específica del historial de respuestas.
+### /admin/questionsimg
+
+#### GET
+##### Summary:
+
+Get all questions with images
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
+
+### /admin/questionsimg/{idQuestion}
+
+#### GET
+##### Summary:
+
+Get details of a specific question by ID
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| idQuestion | path |  | Yes | integer |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
+
+### /admin/questionimg/create
+
+#### GET
+##### Summary:
+
+Get form to add questions
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
+
+### /admin/questionimg
+
+#### POST
+##### Summary:
+
+Create a new question with images
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
+
+### /admin/questionsimg/{id}/edit
+
+#### GET
+##### Summary:
+
+Get form to edit a specific question by ID
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
+
+### /admin/questionsimg/{id}
+
+#### PUT
+##### Summary:
+
+Edit a specific question by ID
+
+##### Parameters
+
+| Name | Located in | Description | Required | Schema |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path |  | Yes | integer |
+
+##### Responses
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Successful operation |
