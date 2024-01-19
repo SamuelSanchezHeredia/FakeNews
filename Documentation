@@ -59,7 +59,7 @@ create images questions         POST        /admin/questionimg           {      
                                                                                                                         	img:img: dont must
                                                                                                                     	}
 
-form edit questions             GET         /admin/question/{id}/edit      {    id:Integer:must                                   nothing                         
+form edit questions             GET         /admin/questionsimg/{id}/edit      {    id:Integer:must                                   nothing                         
                                                                                 question:string:must,       
                                                                                 correct:boolean:must,        
                                                                                 realNew:string:must,         
@@ -67,7 +67,7 @@ form edit questions             GET         /admin/question/{id}/edit      {    
                                                                             }                              
 
 
-edit questions                   PUT         /admin/question/{id}      {                                        {
+edit questions                   PUT         /admin/questionsimg/{id}      {                                        {
                                                                                                                         id:Integer,must,
                                                                                 feedback:string,must,                   question:string,must,
                                                                             }                                           correct:boolean,must,
@@ -76,7 +76,7 @@ edit questions                   PUT         /admin/question/{id}      {        
                                                                                                                     }
 
 
-delet questions                 DELETE       /admin/question/{id}    {                                       {
+delet questions                 DELETE       /admin/questionsimg/{id}    {                                       {
                                                                                 feedback:string, must,                          id:Integer, must,
                                                                             }                                        } 
                                                                                     
