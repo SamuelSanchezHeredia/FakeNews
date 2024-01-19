@@ -1,9 +1,9 @@
 url https://cgarort2508.ieszaidinvergeles.es/fakeNews/fakeNews/public/
 DO the quiz
 
-Descripcion			Metodo		Ruta		            JSON 
-The home quiz			GET		/		                Nothing
-quiz with images		GET		/quizimg		        {
+Descripcion			Metodo		Ruta		            	JSON 				 Params
+The home quiz			GET		/		                Nothing				Nothing
+quiz with images		GET		/quizimg		        {				Nothing
                                                             questions:[
                                                                 {
                                                                 question:string:must,
