@@ -2,3 +2,46 @@
 //     const content = document.querySelectorAll('.content');
 //     content.style.opacitiy = 1; 
 // })
+const apiRoute = "";
+//Eine Methode welche im Nachgang einen String bearbeiten kann
+const formatString = (template, ...args) => {
+    return template.replace(/{([0-9]+)}/g, function (match, index) {
+      return typeof args[index] === 'undefined' ? match : args[index];
+    });
+  }
+
+// String vom Html für eine Card
+// {0} = Title; {1} = Date
+const designOfACard = `          
+<div class="ag-courses_item">
+    <a href="#" class="ag-courses-item_link">
+    <div class="ag-courses-item_bg"></div>
+
+    <div class="ag-courses-item_title">
+        {0}
+    </div>
+
+    <div class="ag-courses-item_date-box">
+        Start:
+        <span class="ag-courses-item_date">
+        {1}
+        </span>
+    </div>
+    </a>
+</div>`
+
+function setNewsCards(){
+    let dataJson = fetchAPI();
+
+    dataJson.forEach(element => {
+        let htmlToAdd = formatString(designOfACard, dataJson.title, dataJson.date);
+        let elementToAddElements = document.getElementById();
+    });
+
+
+
+}
+
+function fetchAPI(){
+
+}
