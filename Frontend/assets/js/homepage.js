@@ -2,7 +2,7 @@
 //     const content = document.querySelectorAll('.content');
 //     content.style.opacitiy = 1; 
 // })
-const apiRoute = "";
+const apiRoute = "https://cgarort2508.ieszaidinvergeles.es/fakeNews/fakeNews/public/api/admin";
 //Eine Methode welche im Nachgang einen String bearbeiten kann
 const formatString = (template, ...args) => {
     return template.replace(/{([0-9]+)}/g, function (match, index) {
@@ -31,7 +31,7 @@ const designOfACard = `
 </div>`
 
 async function setNewsCards(){
-    let response = await fetchAPI(apiRoute + "endpoint");
+    let response = await fetch(apiRoute + "endpoint");
     let dataJson = await response.json()
     let nexBoxElement = document.getElementById("newsBox");
 
@@ -39,8 +39,4 @@ async function setNewsCards(){
         let htmlToAdd = formatString(designOfACard, dataJson.title, dataJson.date);
         nexBoxElement.insertAdjacentHTML("beforeend", htmlToAdd)
     });
-}
-
-function fetchAPI(){
-
 }
