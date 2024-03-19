@@ -31,15 +31,13 @@ const designOfACard = `
 </div>`
 
 function setNewsCards(){
-    let dataJson = fetchAPI();
+    let dataJson = fetchAPI(apiRoute + "endpoint");
+    let nexBoxElement = document.getElementById("newsBox");
 
     dataJson.forEach(element => {
         let htmlToAdd = formatString(designOfACard, dataJson.title, dataJson.date);
-        let elementToAddElements = document.getElementById();
+        nexBoxElement.insertAdjacentHTML("beforeend", htmlToAdd)
     });
-
-
-
 }
 
 function fetchAPI(){
