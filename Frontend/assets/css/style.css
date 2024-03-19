@@ -66,6 +66,14 @@
   border: transparent;
   border-radius: 4rem 1rem 4rem 1rem;
 }
+.school-block {
+  margin-top: 5rem;
+}
+
+#groupImg {
+  border: 5px solid #ff7063;
+  padding: 0!important;
+}
 
 .button {
   background-color: white;
@@ -93,6 +101,22 @@
   border: solid 2px white;
   background-color: #ff7063;
 }
+
+.button-info {
+  border: solid 2px white;
+  background-color: transparent;
+  border-radius: 2rem;
+  color: white;
+  width: 10rem;
+  padding: 0.5rem;
+  -webkit-transition: border 0.1s ease-in;
+}
+
+.button-info:hover {
+  border-color: #ff7063;
+}
+
+
 
 /* .arrows {
     width: 100%;
