@@ -30,8 +30,9 @@ const designOfACard = `
     </a>
 </div>`
 
-function setNewsCards(){
-    let dataJson = fetchAPI(apiRoute + "endpoint");
+async function setNewsCards(){
+    let response = await fetchAPI(apiRoute + "endpoint");
+    let dataJson = await response.json()
     let nexBoxElement = document.getElementById("newsBox");
 
     dataJson.forEach(element => {
