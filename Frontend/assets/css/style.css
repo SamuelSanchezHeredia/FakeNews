@@ -42,14 +42,26 @@
   background-color: #ff7063;
 }
 
-#introduction {
+/* #introduction {
   background: rgb(74, 76, 245);
   background: linear-gradient(
     167deg,
     rgba(74, 76, 245, 0.8702074579831933) 4%,
     rgba(74, 76, 245, 0.8786108193277311) 42%
   );
-  margin: 2rem 0 2rem 0;
+  padding: 2rem 2rem 2rem 2rem;
+  border: transparent;
+  border-radius: 4rem 1rem 4rem 1rem;
+} */
+
+.text-block {
+  background: rgb(74, 76, 245);
+  color: #ffffff;
+  background: linear-gradient(
+    167deg,
+    rgba(74, 76, 245, 0.8702074579831933) 4%,
+    rgba(74, 76, 245, 0.8786108193277311) 42%
+  );
   padding: 2rem 2rem 2rem 2rem;
   border: transparent;
   border-radius: 4rem 1rem 4rem 1rem;
