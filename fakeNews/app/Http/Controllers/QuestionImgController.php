@@ -13,11 +13,11 @@ class QuestionImgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $questionImg = QuestionImg::all();
-        $arrayPreguntas = ['questions'=>$questionImg];
-        return response()->json($arrayPreguntas);
+        $numQuestions = $request->numQuestions;
+        $questionImg = DB::table('fakeNews')->inRandomOrder()->take($numQuestions)->get();
+        return response()->json(['questions'=>$questionImg]);
     }
     public function store(Request $request)
     {
@@ -51,25 +51,6 @@ class QuestionImgController extends Controller
         return response()->json($questionImg);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\questionImg  $questionImg
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $questionImg = QuestionImg::find($id);
-        return response()->json($questionImg);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\questionImg  $questionImg
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request,$id)
     {
         
@@ -101,12 +82,5 @@ class QuestionImgController extends Controller
         }
         return response()->json($feedBack);
     }
-    
-     public function showQuiz()
-    {
-        $numQuestions=3;
-        $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();;
-        $arrayPreguntas = ['questions'=>$questionImg];
-        return response()->json($arrayPreguntas);
-    }
+
 }

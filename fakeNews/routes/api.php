@@ -14,6 +14,5 @@ use App\Http\Controllers\QuestionImgController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::resource('admin/questionimg', QuestionImgController::class);
 Route::get('quizimg', [QuestionImgController::class,'showQuiz']);

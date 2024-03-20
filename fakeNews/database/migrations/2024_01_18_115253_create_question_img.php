@@ -18,11 +18,10 @@ return new class extends Migration
             $table->string("question",250);
             $table->boolean("correct");
             $table->longText("realNew");
-            $table->binary("img")->nullable();
+            $table->string("img")->nullable();
             
         });
-        $sql = 'alter table question_img change img img longblob';
-        DB::statement($sql);
+        
     }
 
     public function down()
