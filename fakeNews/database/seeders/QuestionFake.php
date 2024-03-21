@@ -14,23 +14,15 @@ class QuestionFake extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
         for ($i = 0; $i < 200; $i++) {
             
-    
-            
-            $numSubcategoria= rand(0,count($subCategorias[$categoria])-1);
-            
-            DB::table('producto')->insert([
-                'nombre' => $faker->word,
-                'marca' => $marcasRepuestos[$numMarca],
-                'precio' => $faker->randomFloat(2, 0, 1000),
-                'compatibilidad' => $faker->word,
-                'categoria' => $categoria,
-                'subcategoria' => $subCategorias[$categoria][$numSubcategoria],
-                'rutaimg' => '1708857567.jpg',
-                'descripcion' => $faker->paragraph,
-                'created_at' => now(),
-                'updated_at' => now(),
+            DB::table('question_img')->insert([
+                'question' => $faker->word,
+                'correct' => rand(0,1),
+                'realNews' => $faker->,
+                'img' => $faker->word,
+                
             ]);
         }
     }
