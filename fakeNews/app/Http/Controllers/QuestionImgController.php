@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\QuestionImg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Http\Requests\QuestionsImgCreateRequest;
 class QuestionImgController extends Controller
 {
     /**
@@ -19,7 +19,7 @@ class QuestionImgController extends Controller
         $questionImg = DB::table('question_img')->get();
         return response()->json(['questions'=>$questionImg]);
     }
-    public function store(Request $request)
+    public function store(QuestionsImgCreateRequest $request)
     {
         $feedBack=null;
         try {
@@ -53,7 +53,6 @@ class QuestionImgController extends Controller
 
     public function update(Request $request,$id)
     {
-        
         try {
             $questionImg = QuestionImg::find($id);
             $result = $questionImg->update($request->all());
@@ -61,7 +60,7 @@ class QuestionImgController extends Controller
         } catch (\Exception $e) {
              $feedBack = ['feedback'=>'could not be update'];
         }
-         return response()->json($questionImg);
+         return response()->json($feedBack);
     }
 
     /**
@@ -87,7 +86,7 @@ class QuestionImgController extends Controller
     {
         //$numQuestions=$request->numQuestions;
         $numQuestions=5;
-        $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();;
+        $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();
         $arrayPreguntas = ['questions'=>$questionImg];
         return response()->json($arrayPreguntas);
     }
