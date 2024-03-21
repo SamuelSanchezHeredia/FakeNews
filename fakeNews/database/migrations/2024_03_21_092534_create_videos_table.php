@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string("buttonOption2",250); // Information about button 2 specifics
             $table->string("videoUrlOption1",250); // This is video url, if button 1 is pressed.
             $table->string("videoUrlOption2",250); // This is video url, if button 2 is pressed.
+            $table->string("resultText",250); // Resulttext for final video in game chain.
         });
     }
 
