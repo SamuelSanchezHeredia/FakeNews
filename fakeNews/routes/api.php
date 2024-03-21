@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionImgController;
