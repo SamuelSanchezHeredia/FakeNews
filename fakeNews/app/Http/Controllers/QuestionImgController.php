@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\QuestionImg;
 use Illuminate\Http\Request;
-
-
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\QuestionsImgCreateRequest;
 class QuestionImgController extends Controller
 {
     /**
@@ -13,13 +13,13 @@ class QuestionImgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $numQuestions = $request->numQuestions;
-        $questionImg = DB::table('fakeNews')->inRandomOrder()->take($numQuestions)->get();
+        
+        $questionImg = DB::table('question_img')->get();
         return response()->json(['questions'=>$questionImg]);
     }
-    public function store(Request $request)
+    public function store(QuestionsImgCreateRequest $request)
     {
         $feedBack=null;
         try {
@@ -33,8 +33,8 @@ class QuestionImgController extends Controller
             */
             $question->save();
             $feedBack = ['feedback'=>'Save correctly'];
-        } catch (Exception ) {
-             $feedBack = ['feedback'=>'could not be saved'];
+        } catch (\Exception $e ) {
+             $feedBack = ['feedback'=>'Could not be saved'];
         }
         return response()->json($feedBack);
     }
@@ -53,15 +53,14 @@ class QuestionImgController extends Controller
 
     public function update(Request $request,$id)
     {
-        
         try {
             $questionImg = QuestionImg::find($id);
             $result = $questionImg->update($request->all());
             $feedBack = ['feedback'=>'Update correctly'];
-        } catch (Exception ) {
+        } catch (\Exception $e) {
              $feedBack = ['feedback'=>'could not be update'];
         }
-         return response()->json($questionImg);
+         return response()->json($feedBack);
     }
 
     /**
@@ -82,5 +81,13 @@ class QuestionImgController extends Controller
         }
         return response()->json($feedBack);
     }
-
+    
+    public function showQuiz(Request $request)
+    {
+        //$numQuestions=$request->numQuestions;
+        $numQuestions=5;
+        $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();
+        $arrayPreguntas = ['questions'=>$questionImg];
+        return response()->json($arrayPreguntas);
+    }
 }
