@@ -1,70 +1,71 @@
-const domainOfAPI = "https://cgarort2508.ieszaidinvergeles.es/fakeNews/fakeNews/public/api/admin";
-const questionContainer = document.getElementById("contentQuestion");
-let currentQuestionAnswer; //Saves the answer of the current Question on the Website
-let currentQuestionExplenation; //Saves the explenation of the current Question on the Website
+const domainOfAPI = "https://cgarort2508.ieszaidinvergeles.es/FakeNews/fakeNews/public/api/admin";
+let data;
+let currentQuestionIndex = 0;
 
 window.onload = () => {
-  setNewQuestion();
+  fetchQuestionFromAPI();
 };
 
-//Set new Question
-async function setNewQuestion(){
-    //fetch data
-    const data = await fetchQuestionFromAPI();
-    // let xy = data[0];
-    //Set global variables
-    let question = data.questions[0].question;
-    currentQuestionAnswer = data.correct;
-    currentQuestionExplenation = data.realNew; 
-
-    //Set Question and Image into HTML
-    await AddQuestionAsHTML(question);
-    await AddImageToHtml(data.img);
-  }
-
-  //Fetches the Question from API
-  async function fetchQuestionFromAPI(){
-    const response = await fetch(domainOfAPI + "/questionimg"); //Schau wie die Seite heisst
-    const data = await response.json();
-    console.log("test")
-    return data
-  }
-
-  //Add Question to the Side
-  async function AddQuestionAsHTML(question){
-    let questionLabel = document.getElementById("questionLabel");
-    questionLabel.insertAdjacentHTML("afterbegin", question);
-    // //delete old Content
-    // while (parentElement.firstChild) {
-    //     parentElement.removeChild(parentElement.firstChild);
-    //   }
-
-    // //Add the HTML
-    // let questionElement = document.createElement("p");
-    // let textNode = document.createTextNode(question);
-    // questionElement.appendChild(textNode);
-    // questionContainer.appendChild(newElement);
-  }
-
-  //Adds the image if it Exists 
-  async function AddImageToHtml(img){
-    if (img == null){
-            return;
+async function fetchQuestionFromAPI() {
+  try {
+    const response = await fetch(domainOfAPI + "/questionimg");
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-
-    //Add Image
-    let imageElement = document.createElement("img");
-    imageElement.src = img;
-    questionContainer.appendChild(imageElement);
+    data = await response.json();
+    generateQuestion();
+  } catch (error) {
+    console.error('There was a problem fetching the question from the API:', error);
+  }
 }
 
-  //Answers the Question
-  async function AnswerQuestion(answer){
-    //flip the Card
-    const card = document.querySelectorAll("flip-card");
+function generateQuestion() {
+  const questionTitle = document.getElementById('questionTitle');
+  const questionText = document.getElementById('questionText');
+  const questionTrueBtn = document.getElementById('questionTrue');
+  const questionFalseBtn = document.getElementById('questionFalse');
+  const questionImage = document.getElementById('questionImage');
+  const alertContainer = document.getElementById('alertContainer');
 
-    card.addEventListener("click", () => {
-      console.log("hello there");
-    })
+  if (currentQuestionIndex >= data.questions.length) {
+    alert("End of questions.");
+    return;
+  }
+
+  questionTitle.textContent = "Question " + (currentQuestionIndex + 1);
+  questionText.textContent = data.questions[currentQuestionIndex].question;
+  questionImage.src = data.questions[currentQuestionIndex].img;
+  
+  // Event listener for the "True" button
+  questionTrueBtn.addEventListener('click', () => {
+    if (data.questions[currentQuestionIndex].correct === 1) {
+      showBootstrapAlert('alert-success', 'Correct! This is real news.', alertContainer);
+    } else {
+      showBootstrapAlert('alert-danger', 'Incorrect! This is fake news.', alertContainer);
+    }
+    currentQuestionIndex++;
+    generateQuestion();
+  });
+
+  // Event listener for the "Fake-News" button
+  questionFalseBtn.addEventListener('click', () => {
+    if (data.questions[currentQuestionIndex].correct === 0) {
+      showBootstrapAlert('alert-success', 'Correct! This is fake news.', alertContainer);
+    } else {
+      showBootstrapAlert('alert-danger', 'Incorrect! This is real news.', alertContainer);
+    }
+    currentQuestionIndex++;
+    generateQuestion();
+  });
 }
 
+function showBootstrapAlert(alertType, message, container) {
+  const alert = document.createElement('div');
+  alert.classList.add('alert', alertType);
+  alert.setAttribute('role', 'alert');
+  alert.textContent = message;
+  container.appendChild(alert);
+  setTimeout(() => {
+    alert.remove(); // Remove the alert after some time
+  }, 3000); // Remove after 3 seconds (adjust as needed)
+}
