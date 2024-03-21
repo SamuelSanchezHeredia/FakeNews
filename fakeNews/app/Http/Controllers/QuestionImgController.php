@@ -13,10 +13,10 @@ class QuestionImgController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $numQuestions = $request->numQuestions;
-        $questionImg = DB::table('question_img')->inRandomOrder()->take($numQuestions)->get();
+        
+        $questionImg = DB::table('question_img')->get();
         return response()->json(['questions'=>$questionImg]);
     }
     public function store(Request $request)
@@ -82,5 +82,12 @@ class QuestionImgController extends Controller
         }
         return response()->json($feedBack);
     }
-
+    
+    public function showQuiz()
+    {
+        $numQuestions=3;
+        $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();;
+        $arrayPreguntas = ['questions'=>$questionImg];
+        return response()->json($arrayPreguntas);
+    }
 }

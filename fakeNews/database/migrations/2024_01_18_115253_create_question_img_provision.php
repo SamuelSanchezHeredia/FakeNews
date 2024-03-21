@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('question_img', function (Blueprint $table) {
+        Schema::create('question_img_provisional', function (Blueprint $table) {
             $table->id();
             $table->longText("question");
             $table->boolean("correct");
@@ -26,6 +26,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('question_img');
+        Schema::dropIfExists('question_img_provisional');
     }
 };
