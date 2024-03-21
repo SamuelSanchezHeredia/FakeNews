@@ -1,21 +1,75 @@
+:root {
+  --red: #e20613;
+  --orange: #e8481d;
+  --yellow: #f59c2c;
+  --green: #00964f;
+  --lightblue: #2ea1d9;
+  --purple: #8e1e80;
+}
+
 .language-btn {
   display: grid;
   grid-template-columns: auto 1fr;
   justify-content: center;
   background-color: #ffffff;
-  border: 1px solid #ff7063;
-  border-radius: 1rem;
-  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
-  -webkit-transition: all 0.5s ease;
-}
-.language-btn:hover {
-  background-color: #ff7063;
-  border-color: white;
+  border: 1.5px solid var(--purple);
+  border-radius: 1.5rem;
+  padding: 0.35rem 1.2rem 0.35rem 1.2rem;
 }
 
-/* .lng-arrow {
+.homepage {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1.5px solid var(--red);
+  border-radius: 1.5rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.video {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1.5px solid var(--orange);
+  border-radius: 1.5rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.quiz {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1.5px solid var(--yellow);
+  border-radius: 1.5rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.information {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1.5px solid var(--green);
+  border-radius: 1.5rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1.5px solid var(--lightblue);
+  border-radius: 1.5rem;
+  padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.lng-arrow {
     margin-top: 0.2rem;
-} */
+}
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
@@ -29,7 +83,7 @@
     display: inline-block;
     position: relative;
     text-decoration: none;
-    color: gray!important;
+    color: rgb(0, 0, 0)!important;
     transition: color 0.5s;
 }
 
@@ -40,19 +94,9 @@
     left: 0;
     width: 0;
     height: 2px; 
-    background: #ff7063; 
+    background: var(--purple);
     transition: width 0.3s;
 }
-
-.nav-link:hover {
-    color: #ff7063!important;
-}
-
-.nav-link:hover::before {
-    width: 100%;
-    background: #ff7063;
-}
-
 
 .fade-out {
   position: fixed;
@@ -64,10 +108,18 @@
   border-top-right-radius: 100%;
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
-  background: #ff7063;
+  background: var(--purple);
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
   transition: all 1s ease;
   transform: scale(50);
 }
+
+.logo {
+  float: left;
+}
+
+  /* a {
+    font-family: Louis George Cafe;
+  } */

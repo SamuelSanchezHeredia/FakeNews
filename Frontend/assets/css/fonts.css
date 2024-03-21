@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;1,800&family=Nova+Mono&family=VT323&display=swap');
+@import url('https://fonts.cdnfonts.com/css/louis-george-cafe');
 
 /*font-family: 'Barlow Condensed', sans-serif;*/
 /*font-family: 'Nova Mono', monospace;*/
 /*font-family: 'VT323', monospace;*/
 * {
     font-family: 'Barlow Condensed', sans-serif;
+
+    font-family: 'Louis George Cafe', sans-serif;
+    font-family: 'Louis George Cafe Light', sans-serif;
 }
 
 h1 {
@@ -19,3 +23,12 @@ p {
 .nav-link, .dropdown-item, .lng-btn {
     font-size: 1.2rem!important;
 }
+
+/*
+@font-face {
+    font-family: 'LouisGeorgeCafeRegular';
+    src: url('../fonts/Louis_George_Cafe.ttf') format(ttf);
+    font-weight: 600;
+}
+*/
+
