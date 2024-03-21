@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\QuestionImg;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class QuestionImgController extends Controller
 {
@@ -16,7 +16,7 @@ class QuestionImgController extends Controller
     public function index(Request $request)
     {
         $numQuestions = $request->numQuestions;
-        $questionImg = DB::table('fakeNews')->inRandomOrder()->take($numQuestions)->get();
+        $questionImg = DB::table('question_img')->inRandomOrder()->take($numQuestions)->get();
         return response()->json(['questions'=>$questionImg]);
     }
     public function store(Request $request)
