@@ -26,6 +26,7 @@ async function setNewQuestion(){
   async function fetchQuestionFromAPI(){
     const response = await fetch(domainOfAPI + "/questionimg"); //Schau wie die Seite heisst
     const data = await response.json();
+    console.log("test")
     return data
   }
 
