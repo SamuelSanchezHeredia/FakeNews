@@ -11,3 +11,20 @@
 .footer {
     background-color: var(--red);
 }
+
+.footerhead {
+    text-align: left;
+    font-size: 18pt;
+    margin-bottom: 0px;
+
+}
+
+.footertext {
+    text-align: left;
+    font-size: 12pt;
+}
+
+hr.footer {
+    size: 5px;
+    color: white;
+}
