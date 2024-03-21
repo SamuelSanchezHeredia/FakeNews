@@ -33,8 +33,8 @@ class QuestionImgController extends Controller
             */
             $question->save();
             $feedBack = ['feedback'=>'Save correctly'];
-        } catch (Exception ) {
-             $feedBack = ['feedback'=>'could not be saved'];
+        } catch (\Exception $e ) {
+             $feedBack = ['feedback'=>'Could not be saved'];
         }
         return response()->json($feedBack);
     }
@@ -58,7 +58,7 @@ class QuestionImgController extends Controller
             $questionImg = QuestionImg::find($id);
             $result = $questionImg->update($request->all());
             $feedBack = ['feedback'=>'Update correctly'];
-        } catch (Exception ) {
+        } catch (\Exception $e) {
              $feedBack = ['feedback'=>'could not be update'];
         }
          return response()->json($questionImg);
@@ -86,7 +86,7 @@ class QuestionImgController extends Controller
     public function showQuiz(Request $request)
     {
         //$numQuestions=$request->numQuestions;
-        $numQuestions=10;
+        $numQuestions=5;
         $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();;
         $arrayPreguntas = ['questions'=>$questionImg];
         return response()->json($arrayPreguntas);
