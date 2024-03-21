@@ -16,3 +16,5 @@ use App\Http\Controllers\QuestionImgController;
 */
 Route::resource('admin/questionimg', QuestionImgController::class);
 Route::get('quizimg', [QuestionImgController::class,'showQuiz']);
+
+Route::resource('admin/videoinfo', VideoController::class);
