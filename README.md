@@ -2,7 +2,7 @@
 API documentation for the Fake News application
 
 ## Version: 1.0.0
-
+### provisional url https://cgarort2508.ieszaidinvergeles.es/FakeNews/fakeNews/public/api/
 ### /
 
 #### GET
