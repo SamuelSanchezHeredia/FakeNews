@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('question_img', function (Blueprint $table) {
             $table->id();
             $table->string("question",250);
-            $table->boolean("correct");
+            $table->boolean("correct"); // 1 = True, 0 = false
             $table->longText("realNew");
             $table->string("img")->nullable();
-            
+
         });
-        
+
     }
 
     public function down()
