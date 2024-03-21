@@ -17,6 +17,11 @@
   padding: 0.35rem 1.2rem 0.35rem 1.2rem;
 }
 
+.language-btn:hover {
+  background-color: var(--purple);
+  border-color: white;
+}
+
 .homepage {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -25,6 +30,11 @@
   border: 1.5px solid var(--red);
   border-radius: 1.5rem;
   padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.homepage:hover {
+  background-color: var(--red);
+  border-color: white;
 }
 
 .video {
@@ -37,6 +47,11 @@
   padding: 0.2rem 1.2rem 0.2rem 1.2rem;
 }
 
+.video:hover {
+  background-color: var(--orange);
+  border-color: white;
+}
+
 .quiz {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -45,6 +60,11 @@
   border: 1.5px solid var(--yellow);
   border-radius: 1.5rem;
   padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.quiz:hover {
+  background-color: var(--yellow);
+  border-color: white;
 }
 
 .information {
@@ -57,6 +77,11 @@
   padding: 0.2rem 1.2rem 0.2rem 1.2rem;
 }
 
+.information:hover {
+  background-color: var(--green);
+  border-color: white;
+}
+
 .about {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -65,6 +90,11 @@
   border: 1.5px solid var(--lightblue);
   border-radius: 1.5rem;
   padding: 0.2rem 1.2rem 0.2rem 1.2rem;
+}
+
+.about:hover {
+  background-color: var(--lightblue);
+  border-color: white;
 }
 
 .lng-arrow {

@@ -1,0 +1,13 @@
+:root {
+    --red: #e20613;
+    --orange: #e8481d;
+    --yellow: #f59c2c;
+    --green: #00964f;
+    --lightblue: #2ea1d9;
+    --purple: #8e1e80;
+  }
+  
+
+.footer {
+    background-color: var(--red);
+}
