@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
+    /**
+     * Retrieve video information by ID.
+     *
+     * @param int $id The video ID.
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function videoInfo($id)
     {
         $video = Video::find($id);
