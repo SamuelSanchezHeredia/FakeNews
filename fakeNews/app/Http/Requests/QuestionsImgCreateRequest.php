@@ -44,12 +44,9 @@ class QuestionsImgCreateRequest extends FormRequest
              return [
         'question.required' => 'The  :attribute is required',
         'question.string' => 'The  :attribute must be string',
-      
-
         'correct.required' => 'The  :attribute is required',
         'correct.numeric' => 'The  :attribute must be a numerci',
         'correct.between' => 'The  :attribute must be between :min and :max ',
-
        'realNew.required' => 'The  :attribute is required',
         'realNew.string' => 'The  :attribute must be string',
         'img.string' => 'The  :attribute must be string',

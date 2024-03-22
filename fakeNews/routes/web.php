@@ -15,4 +15,4 @@ use App\Http\Controllers\QuestionImgController;
 */
 
 
-Route::resource('admin/questionimg', QuestionImgController::class);
+//Route::resource('admin/questionimg', QuestionImgController::class);

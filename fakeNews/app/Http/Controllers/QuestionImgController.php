@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\QuestionImg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\QuestionsImgCreateRequest;
+use App\Http\Requests\QuestionsImgRequest;
+use Illuminate\Support\Facades\Validator;
 class QuestionImgController extends Controller
 {
     /**
@@ -19,23 +20,20 @@ class QuestionImgController extends Controller
         $questionImg = DB::table('question_img')->get();
         return response()->json(['questions'=>$questionImg]);
     }
-    public function store(QuestionsImgCreateRequest $request)
+    public function store(Request $request)
     {
-        $feedBack=null;
-        try {
+        
+        $feedBack=$this->validation($request->all());
+       if(!$feedBack){
+           try {
             $question = new QuestionImg($request->all());
-            /*if($request->hasFile('img') && $request->file('img')->isValid()) {
-             $archivo = $request->file('img');
-             $path = $archivo->getRealPath();
-             $imagen = file_get_contents($path);
-             $question->img = base64_encode($imagen);
-            }
-            */
             $question->save();
             $feedBack = ['feedback'=>'Save correctly'];
         } catch (\Exception $e ) {
              $feedBack = ['feedback'=>'Could not be saved'];
         }
+       }
+        
         return response()->json($feedBack);
     }
 
@@ -52,13 +50,16 @@ class QuestionImgController extends Controller
     }
 
     public function update(Request $request,$id)
-    {
-        try {
-            $questionImg = QuestionImg::find($id);
-            $result = $questionImg->update($request->all());
-            $feedBack = ['feedback'=>'Update correctly'];
-        } catch (\Exception $e) {
-             $feedBack = ['feedback'=>'could not be update'];
+    {    
+        $feedBack=$this->validation($request->all());
+        if(!$feedBack){
+            try {
+                $questionImg = QuestionImg::find($id);
+                $result = $questionImg->update($request->all());
+                $feedBack = ['feedback'=>'Update correctly'];
+            } catch (\Exception $e) {
+                 $feedBack = ['feedback'=>'could not be update'];
+            }
         }
          return response()->json($feedBack);
     }
@@ -89,5 +90,23 @@ class QuestionImgController extends Controller
         $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();
         $arrayPreguntas = ['questions'=>$questionImg];
         return response()->json($arrayPreguntas);
+    }
+    
+    
+    
+    private function validation($data){
+         $validator = Validator::make($data, [
+                'question' => 'required|string',
+            'correct' => 'required|numeric|between:0,1',
+            'realNew' => 'required|string',
+            'img' => 'nullable|string|max:255',
+            ]);
+            
+            if($validator->fails()) {
+                return  ['feedback' =>  $validator->getMessageBag()->first()];
+            }else{
+                return false;
+            }
+            
     }
 }

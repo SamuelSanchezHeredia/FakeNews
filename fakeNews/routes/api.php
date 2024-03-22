@@ -4,7 +4,6 @@ use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionImgController;
-use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,8 @@ use App\Http\Controllers\VideoController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::resource('admin/questionimg', QuestionImgController::class);
+Route::resource('admin/questionimg', QuestionImgController::class)->except('edit','create');
 Route::get('quizimg', [QuestionImgController::class,'showQuiz']);
+Route::get('admin/videoinfo/{id}', [VideoController::class,'videoInfo']);
 
-Route::resource('admin/videoinfo', VideoController::class);
+
