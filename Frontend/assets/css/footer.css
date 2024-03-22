@@ -23,7 +23,7 @@
     font-size: 12pt;
 }
 
-hr.whiteline {
+.whiteline {
     height: 5px !important;
     color: #FFFFFF;    
     margin-top: 20px;
@@ -66,4 +66,18 @@ hr.whiteline {
     text-align: left;
     font-size: 12pt;
     width: 1230px;
+}
+
+.imprint-btn {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: center;
+    background-color: #ffffff00;
+    border: 2.5px solid white;
+    border-radius: 1.5rem;
+    padding: 0.35rem 1.2rem 0.35rem 1.2rem;
+}
+
+.imp-arrow {
+    margin-top: 0.6rem;
 }
