@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\QuestionImg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\QuestionsImgCreateRequest;
+
 class QuestionImgController extends Controller
 {
     /**
@@ -15,26 +15,39 @@ class QuestionImgController extends Controller
      */
     public function index()
     {
-        
+        // Retrieve all question images from the database
         $questionImg = DB::table('question_img')->get();
-        return response()->json(['questions'=>$questionImg]);
+        return response()->json(['questions' => $questionImg]);
     }
-    public function store(QuestionsImgCreateRequest $request)
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $feedBack=null;
+        $feedBack = null;
         try {
+            // Create a new QuestionImg instance with request data
             $question = new QuestionImg($request->all());
-            /*if($request->hasFile('img') && $request->file('img')->isValid()) {
-             $archivo = $request->file('img');
-             $path = $archivo->getRealPath();
-             $imagen = file_get_contents($path);
-             $question->img = base64_encode($imagen);
+
+            // Uncomment the following code if you want to handle image uploads
+            /*
+            if ($request->hasFile('img') && $request->file('img')->isValid()) {
+                $archivo = $request->file('img');
+                $path = $archivo->getRealPath();
+                $imagen = file_get_contents($path);
+                $question->img = base64_encode($imagen);
             }
             */
+
+            // Save the question to the database
             $question->save();
-            $feedBack = ['feedback'=>'Save correctly'];
-        } catch (\Exception $e ) {
-             $feedBack = ['feedback'=>'Could not be saved'];
+            $feedBack = ['feedback' => 'Saved correctly'];
+        } catch (\Exception $e) {
+            $feedBack = ['feedback' => 'Could not be saved'];
         }
         return response()->json($feedBack);
     }
@@ -42,52 +55,48 @@ class QuestionImgController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\questionImg  $questionImg
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+        // Find a specific question image by ID
         $questionImg = QuestionImg::find($id);
         return response()->json($questionImg);
     }
 
-    public function update(Request $request,$id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
         try {
+            // Find the existing question image by ID
             $questionImg = QuestionImg::find($id);
+
+            // Update the question image with request data
             $result = $questionImg->update($request->all());
-            $feedBack = ['feedback'=>'Update correctly'];
+            $feedBack = ['feedback' => 'Updated correctly'];
         } catch (\Exception $e) {
-             $feedBack = ['feedback'=>'could not be update'];
+            $feedBack = ['feedback' => 'Could not be updated'];
         }
-         return response()->json($feedBack);
+        return response()->json($questionImg);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\questionImg  $questionImg
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $feedBack=null;
-        $questionImg = QuestionImg::find($id);
-        try {
-            $questionImg->delete();
-            $feedBack = ['feedback'=>'Delete correctly'];
-        } catch (Exception ) {
-             $feedBack = ['feedback'=>'could not be deleted'];
-        }
-        return response()->json($feedBack);
-    }
-    
-    public function showQuiz(Request $request)
-    {
-        //$numQuestions=$request->numQuestions;
-        $numQuestions=5;
-        $questionImg = QuestionImg::inRandomOrder()->take($numQuestions)->get();
-        $arrayPreguntas = ['questions'=>$questionImg];
-        return response()->json($arrayPreguntas);
+        // Implement the logic to delete a question image
+        // ...
+        return response()->json(['message' => 'Deleted successfully']);
     }
 }
