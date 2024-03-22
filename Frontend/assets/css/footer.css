@@ -27,7 +27,7 @@
     height: 5px !important;
     color: #FFFFFF;    
     margin-top: 20px;
-    width: 1230px;
+    width: 95%;
     margin-left: 0px;
     opacity: 1;
 }
@@ -65,7 +65,7 @@
 .imprinttext {
     text-align: left;
     font-size: 12pt;
-    width: 1230px;
+    width: 95%;
 }
 
 .imprint-btn {
@@ -80,4 +80,5 @@
 
 .imp-arrow {
     margin-top: 0.6rem;
+    color: white;
 }
