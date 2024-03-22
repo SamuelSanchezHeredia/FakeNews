@@ -23,20 +23,6 @@
         </div>
 
       </div>
-      <!-- <div class="row"> -->
-      <!-- <div id="score-board" class="col-md-4">
-          <div class="containe d-flex justify-content-center">
-            <div class="flex-row">
-              <h2 class="text-white col-md-auto mt-3">SCORE-BOARD</h2>
-              <div id="score-points">
-                <p id="score-diagramm" class="col-md-auto">Diagramm</p>
-              <p id="score-points" class="col-md-auto">0</p>
-              </div>
-              
-            </div>
-          </div>  
-        </div> -->
-      <!-- <div class="col-md-8 "> -->
       <div class="flex-row">
         <div id="video-section ">
           <div class="embed-responsive embed-responsive-16by9 d-flex justify-content-center">
@@ -45,26 +31,16 @@
               class="embed-responsive-item"
               src="https://player.vimeo.com/video/137857207"
               allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
           <div class="choice d-flex justify-content-center mt-1">
             <button id="opt1-btn" class="btn btn-success choice-btn mx-3" onClick="onClick(this)" value="opt1">Option 1</button>
             <button id="opt2-btn" class="btn btn-danger choice-btn mx-3" onClick="onClick(this)" value="opt2">Option 2</button>
           </div>
-        </div>
-        <div class=" mt-5">
-          <h3>Fortschritt:</h3>
-        </div>
-        <div class="progress">
-          <div
-            id="progress"
-            class="progress-bar progress-bar-striped progress-bar-animated"
-            role="progressbar"
-            aria-valuenow="0"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            style="width: 75%"
-          ></div>
+          <div id="result" class="resultBlock">
+            <p id="resultText" class="resultText">Test</p>
+          </div>
         </div>
       </div>
     </div>
@@ -72,7 +48,7 @@
     <script src="../main.js"></script>
     <script src="../assets/js/score.js"></script>
     <script src="../modules/navigation/navigation.js"></script>
-    <script src="../VideoGame/videoGame.html"></script>
+    <script src="../VideoGame/videoGameFunctions.js"></script>
     <script src="../modules/footer/footer.js"></script>
     <script src="../video.js"></script>
     <script

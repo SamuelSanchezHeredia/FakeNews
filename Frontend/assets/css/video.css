@@ -21,3 +21,10 @@ body {
 .choice-btn {
     font-size: 1.4rem;
 }
+
+.resultBlock{
+    display: none;
+}
+.resultText{
+    color: black;
+}
