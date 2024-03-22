@@ -16,7 +16,6 @@
     text-align: left;
     font-size: 18pt;
     margin-bottom: 0px;
-
 }
 
 .footertext {
@@ -24,7 +23,47 @@
     font-size: 12pt;
 }
 
-hr.footer {
-    size: 5px;
-    color: white;
+hr.whiteline {
+    height: 5px !important;
+    color: #FFFFFF;    
+    margin-top: 20px;
+    width: 1230px;
+    margin-left: 0px;
+    opacity: 1;
+}
+
+.erasmus {
+    padding-top: 25px;
+}
+
+.schoolLogo { 
+    padding: 5px;
+    height: 150px;
+    border-radius: 25px;
+    background: #FFFFFF;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.ISL {
+    margin-top: 5px;
+}
+
+.GSL {
+    margin-top: 25px;
+}
+
+.SSL {
+    margin-top: 45px;
+}    
+
+.imprint {
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.imprinttext {
+    text-align: left;
+    font-size: 12pt;
+    width: 1230px;
 }
