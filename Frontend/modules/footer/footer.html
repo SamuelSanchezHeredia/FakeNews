@@ -25,22 +25,24 @@
             </div>
         </div>
         <hr class="whiteline">
-        <div class="imprint">
-            <p class="footerhead">Privacy policy</p>
-            <br>
+        <button onclick="window.scrollTo(0, document.body.scrollHeight)" class="imprint-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImprint" aria-expanded="false" aria-controls="collapseImprint">
+            <span class="imp-btn-text"><p class="footerhead">Privacy Policy</p></span>
+            <div class="imp-arrow"><span class="button-icon material-symbols-outlined">expand_more</span></div>
+        </button>
+        <div id="collapseImprint" class="collapse">
             <p class="imprinttext">
-                The responsible person according to the data protection laws, in particular the EU General Data Protection Regulation (GDPR), is <br>
-                Max Mustermann <br>
-                Sample street 123 <br>
-                12345 Musterstadt <br>
-                E-mail: datenschutz@beispiel.de <br>
-                <br>
-                Collection of general information <br>
-                When you access our website, information of a general nature is automatically collected. This information (server log files) includes, for example, the type of web browser, the operating system used, the domain name of your Internet service provider and similar information. This is exclusively information that does not allow any conclusions to be drawn about your person. This information is technically necessary in order to correctly deliver the website content requested by you and is mandatory when using the Internet.
-                <br>
-                <br>
+            <br>
+            The responsible person according to the data protection laws, in particular the EU General Data Protection Regulation (GDPR), is <br>
+            Max Mustermann <br>
+            Sample street 123 <br>
+            12345 Musterstadt <br>
+            E-mail: datenschutz@beispiel.de <br>
+            <br>
+            Collection of general information <br>
+            When you access our website, information of a general nature is automatically collected. This information (server log files) includes, for example, the type of web browser, the operating system used, the domain name of your Internet service provider and similar information. This is exclusively information that does not allow any conclusions to be drawn about your person. This information is technically necessary in order to correctly deliver the website content requested by you and is mandatory when using the Internet.
+            <br>
+            <br>
             </p>
-
             <div class="row">
                 <div class="col-3">
                     <p class="imprinttext">
@@ -71,5 +73,9 @@
                 </div>
             </div>
         </div>
+        
+        <div class="collapse" id="collapseExample">
+              placeholder
+          </div>
     </div>
 </footer>
