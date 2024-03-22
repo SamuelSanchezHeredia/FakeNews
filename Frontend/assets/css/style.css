@@ -29,9 +29,25 @@
   width: 80%;
 }
 
-.headline-span {
-    color: #ff7063;
+.headline{
+  text-align: left;
+  font-family: 'Louis George Cafe';
+  font-weight: bold;
+  color: #e20613;
 }
+
+.headline-span {
+  font-weight: 600;
+  font-family: "built titling";
+  font-size: 61px;
+  margin-bottom: -0px;
+}
+
+.subheadline-span{
+  font-size: 18px;
+  padding-top:0;
+}
+
 
 .overlined-title {
   content: "";
